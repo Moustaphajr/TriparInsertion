@@ -1,0 +1,38 @@
+PROCEDURE tri_insertion(tab[]:entier)
+VAR
+   i,j,taille:entier
+BEGIN
+    taille=tab.length
+    FOR i FROM 1 TO taille STEP 1  DO
+        index=tab[i]
+        j=i-1
+        WHILE (j>=0 && tab[j]>index) DO
+            tab[j+1]=tab[j]
+            j--
+        
+        END_WHILE
+        tab[j+1]=index
+    END_FOR 
+
+END
+
+PROCEDURE afficherTab(tab[]:entier)
+VAR
+    set_declarations
+BEGIN
+    FOR i FROM 0 TO tab.length  STEP 1  DO
+        write(tab[i])
+    END_FOR
+END
+
+
+ALGORITHM Insertion
+VAR
+    tab[]:entier
+BEGIN
+    write("Avant le tri par insertion")
+    afficherTab(tab)
+    tri_insertion(tab)
+    write("aprés le titre par insertion ")
+    afficherTab(tab)
+END
